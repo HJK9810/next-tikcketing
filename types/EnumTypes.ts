@@ -1,1 +1,1 @@
-export type PageTap = 'main' | 'ticket'
+export type PageTap = "main" | "ticket";

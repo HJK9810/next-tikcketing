@@ -1,6 +1,6 @@
 import styles from "@/styles/page.module.scss";
 
-function Ticketing({onMoveHome}: TicketingProps) {
+function Ticketing({ onMoveHome }: TicketingProps) {
   return (
     <div>
       <div onClick={onMoveHome}>Home</div>
