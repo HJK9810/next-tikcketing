@@ -1,16 +1,21 @@
 import styles from "@/styles/page.module.scss";
+import {useState} from "react";
+import {PageTap} from "@/types/EnumTypes";
+import Ticketing from "@/components/main/Ticketing";
+import MainTap from "@/components/main/MainTap";
 
 function MainView() {
+  const [tapType, setTapType] = useState<PageTap>('main')
+
+  const tapPage = {
+    main: <MainTap onChangeTap={(type: PageTap) => setTapType(type)} />,
+    ticket: <Ticketing onMoveHome={() => setTapType('main')} />,
+  }
+
   return (
-    <>
-      <h1>Lotte World Ticketing</h1>
-      <main className={styles.main}>
-        <div className={styles.ctas}>
-          <div className={styles.primary}>티켓 발급</div>
-          <div className={styles.secondary}>티켓 분석</div>
-        </div>
-      </main>
-    </>
+    <div className={styles.page}>
+      {tapPage[tapType]}
+    </div>
   );
 }
 
